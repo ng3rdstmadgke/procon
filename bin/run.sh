@@ -50,7 +50,7 @@ TEST_CASE="${args[1]}"
 INPUT="tests/${BIN_NAME}/${TEST_CASE}/input.txt"
 OUTPUT="tests/${BIN_NAME}/${TEST_CASE}/output.txt"
 
-RESULT="$(cat "${INPUT}" | cargo run --bin "${BIN_NAME}" 2>/dev/null)"
+RESULT="$(cat "${INPUT}" | RUST_BACKTRACE=1 cargo run --bin "${BIN_NAME}")"
 echo "=== === === === Input === === === ==="
 cat "${INPUT}"
 echo ""

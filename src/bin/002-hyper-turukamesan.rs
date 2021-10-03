@@ -56,7 +56,6 @@ impl Animal {
     }
 }
 
-
 #[allow(dead_code)]
 fn reader() -> BufReader<Box<dyn Read>> {
     let read: Box<dyn Read> = Box::new(io::stdin());

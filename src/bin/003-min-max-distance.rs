@@ -5,11 +5,14 @@ use std::str::FromStr;
 use std::fmt::Write as FmtWrite;
 
 fn main() {
-    let mut writer = writer();
-    for (_idx, line) in reader().lines().enumerate() {
-        let line = line.ok().unwrap();
-        write_line(&mut writer, &line);
-    }
+    let mut r = reader();
+    let n = parse::<usize>(&read_line(&mut r));
+    let mut ary = split::<i64>(&read_line(&mut r));
+    ary.sort();
+    let min = (0..n)
+        .map(|i| {(ary[i] - ary[n + i]).abs()})
+        .min();
+    println!("{:?}", min.unwrap());
 }
 
 
