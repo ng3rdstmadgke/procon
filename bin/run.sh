@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 function usage {
 cat >&2 <<EOS
 ######################################################################################################
@@ -53,6 +51,9 @@ INPUT="tests/${BIN_NAME}/${TEST_CASE}/input.txt"
 OUTPUT="tests/${BIN_NAME}/${TEST_CASE}/output.txt"
 
 RESULT="$(cat "${INPUT}" | cargo run --bin "${BIN_NAME}" 2>/dev/null)"
+echo "=== === === === Input === === === ==="
+cat "${INPUT}"
+echo ""
 echo "=== === === === Result === === === ==="
 echo "${RESULT}"
 echo ""
